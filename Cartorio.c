@@ -149,7 +149,8 @@ int main()
 		printf("Faça as suas escolhas:\n\n");
 		printf("\t1 - Salvar Nomes:\n");
 		printf("\t2 - Consultar Nomes:\n");
-		printf("\t3 - Apagar Nomes:\n\n\n");
+		printf("\t3 - Apagar Nomes:\n");
+		printf("\t4 - Sair do sistema\n\n\n");
 		
 		printf("Digite a opção desejada:");
 		scanf("%d", &opcao); //Coletando a escolha da usuário
@@ -170,6 +171,13 @@ int main()
 			deletar(); //chamada de função "deletar"
 			break;
 			
+			case 4:
+			printf("\n\n\tObrigado por utilizar o sistema!\n");
+			printf("\tSistema criado por Luiz Felipe Rangel\n\n\n");
+			printf("\t#####Pressione qualquer tecla para fechar#####\n\n");
+			return 0;
+			break;
+			
 			default:
 			printf("\n\n\tOpção não está disponivel !!\n\n"); //caso não exista a opção retorna um erro de opção não disponivel
 			system("pause");
@@ -177,6 +185,5 @@ int main()
 		} // Fim do swtch
 		
 	} // Fim do For
-	
-	printf("\n\n\t\t ########################Software do Angeluiz########################");
+
 }
