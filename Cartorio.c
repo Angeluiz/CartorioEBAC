@@ -125,8 +125,9 @@ int deletar() //Função para deletar nomes no Bando de Dados
 	
 		if(file == NULL)
 		{
-				printf("\nUsuário não existe, tente novamente !\n\n");
-		system("pause");
+			printf("\nUsuário não existe, tente novamente !\n\n");
+			system("pause");
+			fflush(stdin); //Limpar buffer do CPF digitado
 		}
 	}
 		
@@ -137,53 +138,67 @@ int main()
 {
 	int opcao=0; //Definindo a variálvel
 	int repete=1; //Definição da variável do repete para for
+	char senhaadm[10]="a";
+	int comparacao;
 	
-	for(repete=1;repete=1;) //Inicio do for para repetição das opções
+	printf("################### Cartório do Luiz Felipe ###################\n\n");
+	printf("Digite a senha de administrador:\n\n");
+	scanf("%s",senhaadm);
+	
+	comparacao = strcmp(senhaadm, "admin");
+	
+	if(comparacao ==0)
 	{
 	
-		system("cls"); //Limpeza da tela
-		
-		setlocale(LC_ALL, "Portuguese"); //Escolha da linguagem
-	
-		printf("################### Cartório do Luiz Felipe ###################\n\n");
-		printf("Faça as suas escolhas:\n\n");
-		printf("\t1 - Salvar Nomes:\n");
-		printf("\t2 - Consultar Nomes:\n");
-		printf("\t3 - Apagar Nomes:\n");
-		printf("\t4 - Sair do sistema\n\n\n");
-		
-		printf("Digite a opção desejada:");
-		scanf("%d", &opcao); //Coletando a escolha da usuário
-		
-		system("cls"); //Limpeza da tela
-		
-		switch(opcao) //Inicio do switch para as opções
+		for(repete=1;repete=1;) //Inicio do for para repetição das opções
 		{
-			case 1:
-			salvar(); //chamada de função "salavar"
-			break;
-			
-			case 2:
-			consultar(); //chamada de função "consultar"
-			break;
-			
-			case 3:
-			deletar(); //chamada de função "deletar"
-			break;
-			
-			case 4:
-			printf("\n\n\tObrigado por utilizar o sistema!\n");
-			printf("\tSistema criado por Luiz Felipe Rangel\n\n\n");
-			printf("\t#####Pressione qualquer tecla para fechar#####\n\n");
-			return 0;
-			break;
-			
-			default:
-			printf("\n\n\tOpção não está disponivel !!\n\n"); //caso não exista a opção retorna um erro de opção não disponivel
-			system("pause");
-			break;		
-		} // Fim do swtch
+	
+			system("cls"); //Limpeza da tela
 		
-	} // Fim do For
-
+			setlocale(LC_ALL, "Portuguese"); //Escolha da linguagem
+	
+			printf("################### Cartório do Luiz Felipe ###################\n\n");
+			printf("Faça as suas escolhas:\n\n");
+			printf("\t1 - Salvar Nomes:\n");
+			printf("\t2 - Consultar Nomes:\n");
+			printf("\t3 - Apagar Nomes:\n");
+			printf("\t4 - Sair do sistema\n\n\n");
+		
+			printf("Digite a opção desejada:");
+			scanf("%d", &opcao); //Coletando a escolha da usuário
+		
+			system("cls"); //Limpeza da tela
+		
+			switch(opcao) //Inicio do switch para as opções
+			{
+				case 1:
+				salvar(); //chamada de função "salavar"
+				break;
+			
+				case 2:
+				consultar(); //chamada de função "consultar"
+				break;
+			
+				case 3:
+				deletar(); //chamada de função "deletar"
+				break;
+			
+				case 4:
+				printf("\n\n\tObrigado por utilizar o sistema!\n");
+				printf("\tSistema criado por Luiz Felipe Rangel\n\n\n");
+				printf("\t#####Pressione qualquer tecla para fechar#####\n\n");
+				return 0;
+				break;
+			
+				default:
+				printf("\n\n\tOpção não está disponivel !!\n\n"); //caso não exista a opção retorna um erro de opção não disponivel
+				system("pause");
+				break;		
+			} // Fim do swtch
+		
+		} // Fim do For
+	}
+	
+	else
+		printf("Senha incorreta");
 }
